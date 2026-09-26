@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,294 +22,9 @@
     <link rel="stylesheet" href="css/responsive.css" />
 
     <title>From the Ridge to the Water — Jacqueline Gonzalez</title>
-
-    <!-- Cart Sidebar Styles -->
-    <style>
-        /* Overlay behind the cart panel */
-        .cart-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(20, 24, 30, .55);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity .3s ease;
-            z-index: 1050;
-        }
-        .cart-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Cart panel — slides in from the LEFT */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 380px;
-            max-width: 88vw;
-            background: #fff;
-            z-index: 1060;
-            transform: translateX(-100%);
-            transition: transform .35s ease;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 12px 0 40px rgba(0,0,0,.25);
-        }
-        .cart-sidebar.active {
-            transform: translateX(0);
-        }
-
-        .cart-sidebar-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 22px;
-            border-bottom: 1px solid #eee;
-            background: #293b4d;
-            color: #fff;
-        }
-        .cart-sidebar-head h4 {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 800;
-            letter-spacing: .5px;
-            text-transform: uppercase;
-        }
-        .cart-sidebar-head .cart-orders-note {
-            display: block;
-            font-size: 10px;
-            font-weight: 500;
-            color: #cfd8e0;
-            margin-top: 4px;
-            letter-spacing: .3px;
-        }
-        .cart-close-btn {
-            background: transparent;
-            border: none;
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .cart-sidebar-body {
-            flex: 1;
-            overflow-y: auto;
-            padding: 10px 18px;
-        }
-
-        .cart-empty {
-            text-align: center;
-            color: #888;
-            font-size: 13px;
-            padding: 60px 10px;
-        }
-        .cart-empty i {
-            font-size: 40px;
-            display: block;
-            margin-bottom: 12px;
-            color: #ccc;
-        }
-
-        .cart-item-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .cart-item-thumb {
-            width: 56px;
-            height: 56px;
-            object-fit: cover;
-            background: #eee;
-            flex-shrink: 0;
-        }
-        .cart-item-info {
-            flex: 1;
-            min-width: 0;
-        }
-        .cart-item-info h6 {
-            font-size: 12.5px;
-            font-weight: 700;
-            color: #293b4d;
-            margin: 0 0 4px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .cart-item-price {
-            font-size: 12px;
-            color: #e4875f;
-            font-weight: 700;
-        }
-        .cart-item-qty {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 6px;
-        }
-        .cart-item-qty button {
-            width: 20px;
-            height: 20px;
-            border: 1px solid #ddd;
-            background: #fff;
-            font-size: 12px;
-            line-height: 1;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-        .cart-item-qty span {
-            font-size: 12px;
-            min-width: 14px;
-            text-align: center;
-        }
-        .cart-item-remove {
-            background: transparent;
-            border: none;
-            color: #bbb;
-            font-size: 16px;
-            cursor: pointer;
-            align-self: flex-start;
-        }
-        .cart-item-remove:hover {
-            color: #e4875f;
-        }
-
-        .cart-sidebar-footer {
-            border-top: 1px solid #eee;
-            padding: 16px 22px 22px;
-        }
-        .cart-total-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-            font-weight: 800;
-            color: #293b4d;
-            margin-bottom: 14px;
-        }
-        .cart-checkout-btn {
-            display: block;
-            width: 100%;
-            background: #e4875f;
-            color: #fff;
-            border: none;
-            padding: 13px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background .3s ease;
-        }
-        .cart-checkout-btn:hover {
-            background: #293b4d;
-        }
-        .cart-checkout-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-
-        .cart-confirm {
-            text-align: center;
-            padding: 40px 10px;
-        }
-        .cart-confirm i {
-            font-size: 46px;
-            color: #6fa47a;
-            margin-bottom: 14px;
-            display: block;
-        }
-        .cart-confirm h5 {
-            color: #293b4d;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .cart-confirm p {
-            font-size: 12.5px;
-            color: #777;
-        }
-
-        .nav-cart-btn {
-            position: relative;
-            cursor: pointer;
-        }
-
-        /* Floating cart button — fixed bottom-right */
-        .cart-fab {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: #e4875f;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            box-shadow: 0 10px 26px rgba(0,0,0,.25);
-            cursor: pointer;
-            z-index: 1040;
-            transition: background .3s ease, transform .2s ease;
-        }
-        .cart-fab:hover {
-            background: #293b4d;
-            transform: translateY(-3px);
-        }
-        .cart-fab .cart-fab-count {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            background: #293b4d;
-            color: #fff;
-            font-size: 10px;
-            font-weight: 700;
-            min-width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 3px;
-        }
-    </style>
 </head>
 
 <body>
-
-    <!-- Cart Overlay + Sidebar (slides in from the LEFT) -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <aside class="cart-sidebar" id="cartSidebar">
-        <div class="cart-sidebar-head">
-            <div>
-                <h4>Your Cart</h4>
-                <span class="cart-orders-note" id="cartOrdersNote">0 orders checked out so far</span>
-            </div>
-            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">
-                <i class="ri-close-line"></i>
-            </button>
-        </div>
-        <div class="cart-sidebar-body" id="cartSidebarBody">
-            <!-- filled by JS -->
-        </div>
-        <div class="cart-sidebar-footer">
-            <div class="cart-total-row">
-                <span>Total</span>
-                <span id="cartTotalAmount">$0.00</span>
-            </div>
-            <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
-        </div>
-    </aside>
-
-    <!-- Floating checkout icon — fixed bottom right -->
-    <div class="cart-fab" id="cartFab" aria-label="Open cart">
-        <i class="ri-shopping-cart-line"></i>
-        <span class="cart-fab-count" id="cartFabCount">0</span>
-    </div>
 
     <header>
         <!-- Navbar -->
@@ -319,9 +37,9 @@
 
                 <!-- Cart icon: always visible, outside the collapse, before the toggler -->
                 <div class="navbar-cart-mobile">
-                    <a href="#" class="nav-cart-btn" id="navCartBtn">
+                    <a href="#" class="nav-cart-btn">
                         <i class="ri-shopping-cart-line"></i>
-                        <span class="cart-pill-count" id="cartPillCount">0</span>
+                        <span class="cart-pill-count">0</span>
                     </a>
                 </div>
 
@@ -517,8 +235,8 @@
                 <!-- Signed First Printing -->
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="edition-card">
-                        <span class="edition-badge">Limited</span>
                         <div class="edition-cover-wrap">
+                            <span class="edition-badge">Limited</span>
                             <img src="images/book-update-1.png" alt="Signed First Printing">
                         </div>
                         <div class="edition-card-body">
@@ -821,6 +539,14 @@
                             Your browser does not support the video tag.
                             </source>
                         </video>
+
+                        <!-- Play button overlay (visible before play) -->
+                        <!-- <div class="video-play-overlay" id="videoPlayOverlay">
+                            <button class="video-play-btn" id="videoPlayBtn" aria-label="Play trailer">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <span class="video-play-label">Watch the Book Trailer</span>
+                        </div> -->
                     </div>
                 </div>
 
@@ -876,7 +602,7 @@
                                 $25.00
                             </span>
 
-                            <a href="#" class="merch-btn" onclick="addToCart('Official T-Shirt', '$25.00', 'images/merch-tshirt.jpg'); return false;">
+                            <a href="#" class="merch-btn">
                                 ADD TO CART
                             </a>
 
@@ -915,7 +641,7 @@
                                 $18.00
                             </span>
 
-                            <a href="#" class="merch-btn" onclick="addToCart('Book Collection Mug', '$18.00', 'images/merch-mug.jpg'); return false;">
+                            <a href="#" class="merch-btn">
                                 ADD TO CART
                             </a>
 
@@ -932,7 +658,7 @@
                 <div class="merch-card">
 
                     <div class="merch-image">
-                        <img src="images/official-key.jpg"
+                        <img src="images/merch-cap.jpg"
                              alt="Official Cap">
 
                         <span class="merch-label">
@@ -942,10 +668,10 @@
 
                     <div class="merch-content">
 
-                        <h4>Ridge to the Water Collection</h4>
+                        <h4>Official Cap</h4>
 
                         <p>
-                          Product Name: Ridge to the Water Keychain
+                            Ridge to the Water Collection
                         </p>
 
                         <div class="merch-bottom">
@@ -954,7 +680,7 @@
                                 $22.00
                             </span>
 
-                            <a href="#" class="merch-btn" onclick="addToCart('Official Cap', '$22.00', 'images/merch-cap.jpg'); return false;">
+                            <a href="#" class="merch-btn">
                                 ADD TO CART
                             </a>
 
@@ -993,7 +719,7 @@
                                 $20.00
                             </span>
 
-                            <a href="#" class="merch-btn" onclick="addToCart('Book Tote Bag', '$20.00', 'images/merch-tote.jpg'); return false;">
+                            <a href="#" class="merch-btn">
                                 ADD TO CART
                             </a>
 
@@ -1298,143 +1024,6 @@
     <!-- CUSTOM JS -->
     <script src="js/custom.min.js"></script>
 
-    <!-- Cart System JS (adds items, updates header badge, left-side checkout panel) -->
-    <script>
-    (function () {
-        var STORAGE_KEY = 'ridge_cart_items';
-        var ORDERS_KEY = 'ridge_orders_count';
-
-        var cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-        var ordersCount = parseInt(localStorage.getItem(ORDERS_KEY) || '0', 10);
-
-        var overlay = document.getElementById('cartOverlay');
-        var sidebar = document.getElementById('cartSidebar');
-        var body = document.getElementById('cartSidebarBody');
-        var pillCount = document.getElementById('cartPillCount');
-        var ordersNote = document.getElementById('cartOrdersNote');
-        var totalAmount = document.getElementById('cartTotalAmount');
-        var checkoutBtn = document.getElementById('cartCheckoutBtn');
-        var navCartBtn = document.getElementById('navCartBtn');
-        var closeBtn = document.getElementById('cartCloseBtn');
-        var cartFab = document.getElementById('cartFab');
-        var cartFabCount = document.getElementById('cartFabCount');
-
-        function parsePrice(p) {
-            return parseFloat(String(p).replace(/[^0-9.]/g, '')) || 0;
-        }
-
-        function save() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-            localStorage.setItem(ORDERS_KEY, String(ordersCount));
-        }
-
-        function badgeCount() {
-            return cart.reduce(function (sum, item) { return sum + item.qty; }, 0);
-        }
-
-        function render() {
-            pillCount.textContent = badgeCount();
-            cartFabCount.textContent = badgeCount();
-            ordersNote.textContent = ordersCount + (ordersCount === 1 ? ' order checked out so far' : ' orders checked out so far');
-
-            if (!cart.length) {
-                body.innerHTML = '<div class="cart-empty"><i class="ri-shopping-cart-line"></i>Your cart is empty.<br>Add an edition or some merchandise to get started.</div>';
-                totalAmount.textContent = '$0.00';
-                checkoutBtn.disabled = true;
-                return;
-            }
-
-            checkoutBtn.disabled = false;
-            var html = '';
-            var total = 0;
-
-            cart.forEach(function (item, idx) {
-                var lineTotal = parsePrice(item.price) * item.qty;
-                total += lineTotal;
-                html += '' +
-                    '<div class="cart-item-row">' +
-                        '<img class="cart-item-thumb" src="' + (item.image || 'images/book-update-1.png') + '" alt="' + item.name + '">' +
-                        '<div class="cart-item-info">' +
-                            '<h6>' + item.name + '</h6>' +
-                            '<span class="cart-item-price">' + item.price + '</span>' +
-                            '<div class="cart-item-qty">' +
-                                '<button data-action="dec" data-idx="' + idx + '">−</button>' +
-                                '<span>' + item.qty + '</span>' +
-                                '<button data-action="inc" data-idx="' + idx + '">+</button>' +
-                            '</div>' +
-                        '</div>' +
-                        '<button class="cart-item-remove" data-action="remove" data-idx="' + idx + '"><i class="ri-delete-bin-line"></i></button>' +
-                    '</div>';
-            });
-
-            body.innerHTML = html;
-            totalAmount.textContent = '$' + total.toFixed(2);
-        }
-
-        function openCart() {
-            overlay.classList.add('active');
-            sidebar.classList.add('active');
-            render();
-        }
-
-        function closeCart() {
-            overlay.classList.remove('active');
-            sidebar.classList.remove('active');
-        }
-
-        // Global function — called by the existing edition + merchandise buttons
-        window.addToCart = function (name, price, image) {
-            var existing = cart.find(function (i) { return i.name === name; });
-            if (existing) {
-                existing.qty += 1;
-            } else {
-                cart.push({ name: name, price: price, image: image || '', qty: 1 });
-            }
-            save();
-            render();
-        };
-
-        body.addEventListener('click', function (e) {
-            var btn = e.target.closest('button[data-action]');
-            if (!btn) return;
-            var idx = parseInt(btn.getAttribute('data-idx'), 10);
-            var action = btn.getAttribute('data-action');
-
-            if (action === 'inc') cart[idx].qty += 1;
-            if (action === 'dec') {
-                cart[idx].qty -= 1;
-                if (cart[idx].qty <= 0) cart.splice(idx, 1);
-            }
-            if (action === 'remove') cart.splice(idx, 1);
-
-            save();
-            render();
-        });
-
-        checkoutBtn.addEventListener('click', function () {
-            if (!cart.length) return;
-            ordersCount += 1;
-            cart = [];
-            save();
-            body.innerHTML = '<div class="cart-confirm"><i class="ri-checkbox-circle-line"></i><h5>Order placed!</h5><p>Thanks for your order. You now have ' + ordersCount + (ordersCount === 1 ? ' order' : ' orders') + ' checked out.</p></div>';
-            totalAmount.textContent = '$0.00';
-            checkoutBtn.disabled = true;
-            pillCount.textContent = '0';
-            cartFabCount.textContent = '0';
-            ordersNote.textContent = ordersCount + (ordersCount === 1 ? ' order checked out so far' : ' orders checked out so far');
-        });
-
-        navCartBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            openCart();
-        });
-        closeBtn.addEventListener('click', closeCart);
-        overlay.addEventListener('click', closeCart);
-        cartFab.addEventListener('click', openCart);
-
-        render();
-    })();
-    </script>
 
 </body>
 
