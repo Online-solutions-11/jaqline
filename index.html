@@ -273,6 +273,10 @@
             justify-content: center;
             padding: 0 3px;
         }
+        .merchandise-pagination{
+                margin-top: 4rem;
+    position: relative;
+        }
     </style>
 </head>
 
@@ -847,172 +851,173 @@
         </div>
 
 
-        <div class="row">
+      <!-- Merchandise Swiper -->
+<div class="swiper merchandiseSwiper">
+    <div class="swiper-wrapper">
 
-            <!-- Merchandise 01 -->
-            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-                <div class="merch-card">
+        <!-- Merchandise 01 -->
+        <div class="swiper-slide">
+            <div class="merch-card">
 
-                    <div class="merch-image">
-                        <img src="images/merch-tshirt.jpg"
-                             alt="From the Ridge to the Water T-Shirt">
+                <div class="merch-image">
+                    <img src="images/merch-tshirt.jpg"
+                         alt="From the Ridge to the Water T-Shirt">
 
-                        <span class="merch-label">
-                            NEW
-                        </span>
-                    </div>
-
-                    <div class="merch-content">
-
-                        <h4>Official T-Shirt</h4>
-
-                        <p>
-                            From the Ridge to the Water
-                        </p>
-
-                        <div class="merch-bottom">
-
-                            <span class="merch-price">
-                                $25.00
-                            </span>
-
-                            <a href="#" class="merch-btn" onclick="addToCart('Official T-Shirt', '$25.00', 'images/merch-tshirt.jpg'); return false;">
-                                ADD TO CART
-                            </a>
-
-                        </div>
-
-                    </div>
-
+                    <span class="merch-label">NEW</span>
                 </div>
-            </div>
 
+                <div class="merch-content">
+                    <h4>Official T-Shirt</h4>
 
-            <!-- Merchandise 02 -->
-            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-                <div class="merch-card">
+                    <p>From the Ridge to the Water</p>
 
-                    <div class="merch-image">
-                        <img src="images/merch-mug.jpg"
-                             alt="Book Mug">
+                    <div class="merch-bottom">
+                        <span class="merch-price">$25.00</span>
 
-                        <span class="merch-label">
-                            FEATURED
-                        </span>
+                        <a href="#" class="merch-btn"
+                           onclick="addToCart('Official T-Shirt', '$25.00', 'images/merch-tshirt.jpg'); return false;">
+                            ADD TO CART
+                        </a>
                     </div>
-
-                    <div class="merch-content">
-
-                        <h4>Book Collection Mug</h4>
-
-                        <p>
-                            Official Jacqueline Gonzalez
-                        </p>
-
-                        <div class="merch-bottom">
-
-                            <span class="merch-price">
-                                $18.00
-                            </span>
-
-                            <a href="#" class="merch-btn" onclick="addToCart('Book Collection Mug', '$18.00', 'images/merch-mug.jpg'); return false;">
-                                ADD TO CART
-                            </a>
-
-                        </div>
-
-                    </div>
-
                 </div>
+
             </div>
-
-
-            <!-- Merchandise 03 -->
-            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-                <div class="merch-card">
-
-                    <div class="merch-image">
-                        <img src="images/official-key.jpg"
-                             alt="Official Cap">
-
-                        <span class="merch-label">
-                            NEW
-                        </span>
-                    </div>
-
-                    <div class="merch-content">
-
-                        <h4>Ridge to the Water Collection</h4>
-
-                        <p>
-                          Product Name: Ridge to the Water Keychain
-                        </p>
-
-                        <div class="merch-bottom">
-
-                            <span class="merch-price">
-                                $22.00
-                            </span>
-
-                            <a href="#" class="merch-btn" onclick="addToCart('Official Cap', '$22.00', 'images/merch-cap.jpg'); return false;">
-                                ADD TO CART
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-
-            <!-- Merchandise 04 -->
-            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-                <div class="merch-card">
-
-                    <div class="merch-image">
-                        <img src="images/merch-tote.jpg"
-                             alt="Book Tote Bag">
-
-                        <span class="merch-label">
-                            EXCLUSIVE
-                        </span>
-                    </div>
-
-                    <div class="merch-content">
-
-                        <h4>Book Tote Bag</h4>
-
-                        <p>
-                            Official Book Collection
-                        </p>
-
-                        <div class="merch-bottom">
-
-                            <span class="merch-price">
-                                $20.00
-                            </span>
-
-                            <a href="#" class="merch-btn" onclick="addToCart('Book Tote Bag', '$20.00', 'images/merch-tote.jpg'); return false;">
-                                ADD TO CART
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
         </div>
+
+
+        <!-- Merchandise 02 -->
+        <div class="swiper-slide">
+            <div class="merch-card">
+
+                <div class="merch-image">
+                    <img src="images/merch-mug.jpg"
+                         alt="Book Mug">
+
+                    <span class="merch-label">FEATURED</span>
+                </div>
+
+                <div class="merch-content">
+                    <h4>Book Collection Mug</h4>
+
+                    <p>Official Jacqueline Gonzalez</p>
+
+                    <div class="merch-bottom">
+                        <span class="merch-price">$18.00</span>
+
+                        <a href="#" class="merch-btn"
+                           onclick="addToCart('Book Collection Mug', '$18.00', 'images/merch-mug.jpg'); return false;">
+                            ADD TO CART
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Merchandise 03 -->
+        <div class="swiper-slide">
+            <div class="merch-card">
+
+                <div class="merch-image">
+                    <img src="images/official-key.jpg"
+                         alt="Ridge to the Water Keychain">
+
+                    <span class="merch-label">NEW</span>
+                </div>
+
+                <div class="merch-content">
+                    <h4>Ridge to the Water Collection</h4>
+
+                    <p>Ridge to the Water Keychain</p>
+
+                    <div class="merch-bottom">
+                        <span class="merch-price">$22.00</span>
+
+                        <a href="#" class="merch-btn"
+                           onclick="addToCart('Ridge to the Water Keychain', '$22.00', 'images/official-key.jpg'); return false;">
+                            ADD TO CART
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Merchandise 04 -->
+        <div class="swiper-slide">
+            <div class="merch-card">
+
+                <div class="merch-image">
+                    <img src="images/merch-tote.jpg"
+                         alt="Book Tote Bag">
+
+                    <span class="merch-label">EXCLUSIVE</span>
+                </div>
+
+                <div class="merch-content">
+                    <h4>Book Tote Bag</h4>
+
+                    <p>Official Book Collection</p>
+
+                    <div class="merch-bottom">
+                        <span class="merch-price">$20.00</span>
+
+                        <a href="#" class="merch-btn"
+                           onclick="addToCart('Book Tote Bag', '$20.00', 'images/merch-tote.jpg'); return false;">
+                            ADD TO CART
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+          <div class="swiper-slide">
+            <div class="merch-card">
+
+                <div class="merch-image">
+                    <img src="images/water-mar.jpg"
+                         alt="Book Tote Bag">
+
+                    <span class="merch-label">EXCLUSIVE</span>
+                </div>
+
+                <div class="merch-content">
+                    <h4>Water Smart Bottle</h4>
+
+                    <p>Ridge to the Water Smart Bottle</p>
+
+                    <div class="merch-bottom">
+                        <span class="merch-price">$20.00</span>
+
+                        <a href="#" class="merch-btn"
+                           onclick="addToCart('Water Smart Bottle', '$20.00', 'images/water-mar.jpg'); return false;">
+                            ADD TO CART
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation -->
+  
+
+    <!-- Dots -->
+    <div class="swiper-pagination merchandise-pagination"></div>
+</div>
 
 
         <!-- View All Button -->
-        <div class="text-center merchandise-more">
+        <!-- <div class="text-center merchandise-more">
             <a href="#" class="merch-view-btn">
                 VIEW ALL MERCHANDISE
             </a>
-        </div>
+        </div> -->
 
     </div>
 </section>
@@ -1435,7 +1440,50 @@
         render();
     })();
     </script>
+<script>
+var merchandiseSwiper = new Swiper(".merchandiseSwiper", {
 
+    slidesPerView: 4,
+    spaceBetween: 25,
+
+    loop: true,
+
+    navigation: {
+        nextEl: ".merchandise-next",
+        prevEl: ".merchandise-prev",
+    },
+
+    pagination: {
+        el: ".merchandise-pagination",
+        clickable: true,
+    },
+
+    breakpoints: {
+
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 15
+        },
+
+        576: {
+            slidesPerView: 2,
+            spaceBetween: 20
+        },
+
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        },
+
+        1200: {
+            slidesPerView: 4,
+            spaceBetween: 25
+        }
+
+    }
+
+});
+</script>
 </body>
 
 </html>
